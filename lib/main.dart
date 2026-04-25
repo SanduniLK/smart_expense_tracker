@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:smart_expense_tracker/screens/splash_screen.dart';
 
 void main() async {
-  // Initialize storage service before running the app
+  
  
   
   runApp(

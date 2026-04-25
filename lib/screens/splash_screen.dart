@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:smart_expense_tracker/utils/app_colors.dart'; // AppColors import කරන්න
+import 'package:smart_expense_tracker/utils/app_colors.dart'; 
 import 'transaction_list_screen.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +15,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // තත්පර 3කට පසු List Screen එකට මාරු වීම
+    
     Timer(const Duration(seconds: 3), () {
       if (mounted) {
         Navigator.pushReplacement(
@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // මුළු screen එකටම gradient එකක් ලබා දෙමු
+      
       body: Container(
         width: double.infinity,
         height: double.infinity,
@@ -37,20 +37,20 @@ class _SplashScreenState extends State<SplashScreen> {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: AppColors.mainGradient, // Indigo Gradient එක
+            colors: AppColors.mainGradient, 
           ),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // ලස්සන Icon එකක්
+         
             const Icon(
               Icons.account_balance_wallet_rounded,
               size: 100,
               color: Colors.white,
             ),
             const SizedBox(height: 24),
-            // App එකේ නම
+            
             Text(
               "SmartExpense",
               style: GoogleFonts.poppins(
@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             const SizedBox(height: 60),
-            // Loading පෙන්වීමට - සුදු පාටින්
+           
             const CircularProgressIndicator(
               valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
               strokeWidth: 3,

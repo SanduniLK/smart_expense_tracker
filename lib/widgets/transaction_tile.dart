@@ -1,9 +1,7 @@
-// lib/widgets/transaction_tile.dart
-
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:smart_expense_tracker/model/transaction_model.dart';
-import 'package:smart_expense_tracker/utils/app_colors.dart'; // AppColors import කරන්න
+import 'package:smart_expense_tracker/utils/app_colors.dart'; 
 
 class TransactionTile extends StatelessWidget {
   final TransactionModel transaction;
@@ -19,7 +17,7 @@ class TransactionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final isExpense = transaction.type == TransactionType.expense;
     
-    // AppColors පාවිච්චි කරමු
+  
     final amountColor = isExpense ? AppColors.expenseRed : AppColors.incomeGreen;
     final bgColor = isExpense ? AppColors.expenseRedBg : AppColors.incomeGreenBg;
     
@@ -32,7 +30,7 @@ class TransactionTile extends StatelessWidget {
       elevation: 0,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(12),
-        side: BorderSide(color: AppColors.borderGrey), // Border color updated
+        side: BorderSide(color: AppColors.borderGrey), 
       ),
       child: InkWell(
         onTap: onTap,
@@ -41,12 +39,12 @@ class TransactionTile extends StatelessWidget {
           padding: const EdgeInsets.all(16),
           child: Row(
             children: [
-              // Category emoji badge
+              
               Container(
                 width: 46,
                 height: 46,
                 decoration: BoxDecoration(
-                  color: bgColor, // Dynamic background updated
+                  color: bgColor, 
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Center(
@@ -58,7 +56,7 @@ class TransactionTile extends StatelessWidget {
               ),
               const SizedBox(width: 12),
               
-              // Merchant & category info
+          
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,14 +75,14 @@ class TransactionTile extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(
                               horizontal: 8, vertical: 2),
                           decoration: BoxDecoration(
-                            color: AppColors.indigoBg, // Indigo background updated
+                            color: AppColors.indigoBg, 
                             borderRadius: BorderRadius.circular(20),
                           ),
                           child: Text(
                             transaction.category.displayName,
                             style: const TextStyle(
                               fontSize: 11,
-                              color: AppColors.primaryIndigo, // Primary color updated
+                              color: AppColors.primaryIndigo, 
                               fontWeight: FontWeight.w500,
                             ),
                           ),
@@ -94,7 +92,7 @@ class TransactionTile extends StatelessWidget {
                           child: Text(
                             formattedDate,
                             style: TextStyle(
-                                fontSize: 11, color: AppColors.textGrey), // Grey text updated
+                                fontSize: 11, color: AppColors.textGrey),
                             overflow: TextOverflow.ellipsis,
                           ),
                         ),
@@ -105,7 +103,7 @@ class TransactionTile extends StatelessWidget {
               ),
               const SizedBox(width: 8),
               
-              // Amount + account ref
+              
               Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
@@ -114,14 +112,14 @@ class TransactionTile extends StatelessWidget {
                     style: TextStyle(
                       fontWeight: FontWeight.w700,
                       fontSize: 14,
-                      color: amountColor, // Dynamic amount color updated
+                      color: amountColor, 
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
                     transaction.accountRef, 
                     style: TextStyle(
-                        fontSize: 11, color: AppColors.textGrey), // Grey text updated
+                        fontSize: 11, color: AppColors.textGrey), 
                   ),
                 ],
               ),

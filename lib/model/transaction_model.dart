@@ -1,4 +1,4 @@
-// lib/model/transaction_model.dart
+
 
 enum TransactionType { expense, income }
 
@@ -90,7 +90,7 @@ class TransactionModel {
     );
   }
 
-  // Convert to JSON for storage
+  
   Map<String, dynamic> toJson() {
     return {
       'id': id,
@@ -104,7 +104,7 @@ class TransactionModel {
     };
   }
 
-  // Create from JSON for loading
+
   factory TransactionModel.fromJson(Map<String, dynamic> json) {
     return TransactionModel(
       id: json['id'] as String,

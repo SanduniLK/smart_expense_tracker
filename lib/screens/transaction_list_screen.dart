@@ -5,7 +5,7 @@ import 'package:smart_expense_tracker/screens/add_sms_screen.dart';
 import 'package:smart_expense_tracker/screens/transaction_detail_screen.dart';
 import 'package:smart_expense_tracker/widgets/summary_card.dart';
 import 'package:smart_expense_tracker/widgets/transaction_tile.dart';
-import 'package:smart_expense_tracker/utils/app_colors.dart'; // Import AppColors
+import 'package:smart_expense_tracker/utils/app_colors.dart'; 
 
 class TransactionListScreen extends ConsumerWidget {
   const TransactionListScreen({super.key});

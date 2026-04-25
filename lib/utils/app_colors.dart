@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class AppColors {
   // Main Colors
-  static const Color primaryIndigo = Color(0xFF303F9F); // shade700
-  static const Color secondaryIndigo = Color(0xFF3F51B5); // shade500
+  static const Color primaryIndigo = Color(0xFF303F9F); 
+  static const Color secondaryIndigo = Color(0xFF3F51B5); 
   
   // Gradient
   static final List<Color> mainGradient = [
@@ -36,6 +36,6 @@ static final Color indigo700 = Colors.indigo.shade700;
   static const Color cardBg = Colors.white;
   static const Color scaffoldBg = Color(0xFFF7F8FC);
   
-  // Shadow
+  
   static final Color shadowColor = primaryIndigo.withOpacity(0.3);
 }

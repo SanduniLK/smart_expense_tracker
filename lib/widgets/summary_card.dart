@@ -9,7 +9,7 @@ class SummaryCard extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // සටහන: ඔයාගේ provider එකේ මේ values ටික ගණනය කරන logic එක තියෙන්න ඕනේ
+    
     final totalExpense = ref.watch(totalExpenseProvider);
     final totalIncome = ref.watch(totalIncomeProvider);
     final balance = totalIncome - totalExpense;
@@ -107,7 +107,7 @@ class _StatItem extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(6),
             decoration: BoxDecoration(
-              color: Colors.white.withOpacity(0.12), // Background based on surface
+              color: Colors.white.withOpacity(0.12), 
               borderRadius: BorderRadius.circular(8),
             ),
             child: Icon(icon, color: color, size: 16),

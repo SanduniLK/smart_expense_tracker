@@ -6,7 +6,7 @@ class SmsParser {
     final amount = _extractAmount(rawMessage);
     if (amount == null) return null;
 
-    // Date/time extraction is critical - SMS without proper date should be rejected
+  
     final dateTime = _extractDateTime(rawMessage);
     if (dateTime == null) return null;
 
@@ -28,7 +28,7 @@ class SmsParser {
   }
 
   static double? _extractAmount(String message) {
-    // Try "for LKR 200.00" format first
+   
     var regex = RegExp(
       r'for\s+LKR\s+([\d,]+(?:\.\d{1,2})?)',
       caseSensitive: false,
@@ -39,7 +39,7 @@ class SmsParser {
       return double.tryParse(raw);
     }
     
-    // Try "LKR 200.00" format (original)
+    
     regex = RegExp(
       r'LKR\s*([\d,]+(?:\.\d{1,2})?)',
       caseSensitive: false,
@@ -52,16 +52,16 @@ class SmsParser {
 
   static TransactionType _extractType(String message) {
     final lower = message.toLowerCase();
-    // Check for income indicators
+   
     if (lower.contains('credited') || lower.contains('credit') || lower.contains('deposited') || lower.contains('received')) {
       return TransactionType.income;
     }
-    // Default to expense for debit/purchase/authorised transactions
+ 
     return TransactionType.expense;
   }
 
   static String _extractMerchant(String message) {
-    // Pattern 1: "Purchase at MERCHANT LOCATION" (Card SMS format)
+    
     var regex = RegExp(
       r'Purchase\s+at\s+([A-Z][A-Z0-9 &\-\/]*?)(?:\s+(?:on|for|LK|has))',
       caseSensitive: false,
@@ -74,7 +74,7 @@ class SmsParser {
       }
     }
 
-    // Pattern 2: "via POS at [MERCHANT] [TRANS_REF] [DATE]"
+  
     regex = RegExp(
       r'via\s+POS\s+at\s+(.+?)(?:\s+\d{6,8}\s+\d{2}\/\d{2}\/\d{4})',
       caseSensitive: false,
@@ -87,7 +87,7 @@ class SmsParser {
       }
     }
 
-    // Pattern 3: Generic "via [TYPE] [MERCHANT]" format
+   
     regex = RegExp(
       r'via\s+(.+?)(?:\s+\d{6,8}\s+\d{2}\/\d{2}\/\d{4})',
       caseSensitive: false,
@@ -100,7 +100,7 @@ class SmsParser {
       }
     }
 
-    // Pattern 4: Fallback - extract anything between "at" and before reference/date
+    
     regex = RegExp(
       r'at\s+([A-Z0-9 &\-\/]+?)(?:\s+\d{6,8}|$)',
       caseSensitive: false,
@@ -117,7 +117,7 @@ class SmsParser {
   }
 
   static DateTime? _extractDateTime(String message) {
-    // Pattern 1: DD/MM/YY HH:MM AM/PM (e.g., 26/02/26 03:35 AM)
+   
     var regex = RegExp(r'(\d{2})\/(\d{2})\/(\d{2})\s+(\d{1,2}):(\d{2})\s+(AM|PM)', caseSensitive: false);
     var match = regex.firstMatch(message);
     if (match != null) {
@@ -130,19 +130,19 @@ class SmsParser {
         final ampm = match.group(6)!.toUpperCase();
         final second = 0;
 
-        // Convert 2-digit year to 4-digit year
+       
         if (year < 100) {
           year = year > 50 ? 1900 + year : 2000 + year;
         }
 
-        // Convert 12-hour to 24-hour format
+        
         if (ampm == 'PM' && hour != 12) {
           hour += 12;
         } else if (ampm == 'AM' && hour == 12) {
           hour = 0;
         }
 
-        // Validate
+        
         if (month < 1 || month > 12 || day < 1 || day > 31 || hour < 0 || hour > 23 || minute < 0 || minute > 59) {
           return null;
         }
@@ -153,7 +153,7 @@ class SmsParser {
       }
     }
 
-    // Pattern 2: DD/MM/YYYY HH:MM:SS (original format)
+    
     regex = RegExp(r'(\d{2})\/(\d{2})\/(\d{4})\s+(\d{2}):(\d{2}):(\d{2})');
     match = regex.firstMatch(message);
     if (match == null) return null;
@@ -166,7 +166,7 @@ class SmsParser {
       final minute = int.parse(match.group(5)!);
       final second = int.parse(match.group(6)!);
 
-      // Validate the parsed values
+    
       if (month < 1 || month > 12 || day < 1 || day > 31 || hour < 0 || hour > 23 || minute < 0 || minute > 59 || second < 0 || second > 59) {
         return null;
       }
@@ -178,7 +178,7 @@ class SmsParser {
   }
 
   static String _extractAccountRef(String message) {
-    // Try account format first: AC **1111
+    
     var regex = RegExp(r'AC\s*(\*{1,4}\d+)');
     var match = regex.firstMatch(message);
     if (match != null) return match.group(1)!;

@@ -31,7 +31,7 @@ class _AddSmsScreenState extends ConsumerState<AddSmsScreen> {
       return;
     }
 
-    // සටහන: ඔබේ provider එකේ function එක 'addFromSms' ලෙස තිබිය යුතුය
+ 
     final success = ref.read(transactionProvider.notifier).addFromSms(text);
 
     if (success) {
