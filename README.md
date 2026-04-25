@@ -19,13 +19,7 @@ SmartExpense is a modern mobile application built to simplify personal finance m
 
 ---
 
-## 📸 App Preview
 
-| Splash Screen | Dashboard | Add Transaction |
-| :---: | :---: | :---: |
-| <img src="https://github.com/user-attachments/assets/57f6f70a-7965-4f30-802c-55c3258525e9" width="200" alt="Splash Screen" /> | <img src="https://github.com/user-attachments/assets/b822d561-127e-4054-9988-c77464010375" width="200" alt="Dashboard" /> | <img src="https://github.com/user-attachments/assets/94178a9c-09c3-4d4b-ba8b-70c8d103328e" width="200" alt="Add SMS" /> |
-
----
 
 ## 🧠 The Parsing Logic
 
