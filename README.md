@@ -23,7 +23,7 @@ Tracking expenses manually is boring. **SmartExpense** does the hard work for yo
 
 | Splash Screen | Dashboard | Add Transaction |
 | :---: | :---: | :---: |
-| <img src="https://via.placeholder.com/200x400?text=Splash+Screen" width="200" /> | <img src="https://via.placeholder.com/200x400?text=Dashboard" width="200" /> | <img src="https://via.placeholder.com/200x400?text=Add+SMS" width="200" /> |
+| <img src="https://via.placeholder.com/200x400?text=Splash+Screen" width="200" /> | [<img src="https://via.placeholder.com/200x400?text=Dashboard" width="200" />](https://github.com/SanduniLK/smart_expense_tracker/issues/3#issue-4328816705) | <img src="https://via.placeholder.com/200x400?text=Add+SMS" width="200" /> |
 > *Tip: Replace these placeholders with your actual app screenshots to make it 100% attractive!*
 
 ---
